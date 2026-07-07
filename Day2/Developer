@@ -1,0 +1,19 @@
+nano Day2_work.sh
+
+mkdir project
+cd project
+touch file1.txt
+touch file2.txt
+touch file3.txt
+echo "this is the second program on Linux">file1.txt
+mv file1.txt file1_moved.txt
+find . -name "file2.txt"
+chmod +x file2.txt
+cd ..
+tar -cvf Day2.tar project/
+mv Day2.tar prodapt_batch3/
+
+ctrl x + yes + enter
+cd ..
+./Day2_work.sh
+
