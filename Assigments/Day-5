@@ -1,0 +1,114 @@
+orders = {}
+
+
+def create_order():
+    order_id = int(input("Enter Order ID: "))
+    if order_id in orders:
+        print("Order ID already exists")
+        return
+
+    customer = input("Enter Customer Name: ")
+    orders[order_id] = {
+        "customer": customer,
+        "items": [],
+        "bill": 0
+    }
+    print("Order created successfully")
+
+
+def add_item():
+    order_id = int(input("Enter Order ID: "))
+
+    if order_id not in orders:
+        print("Order not found")
+        return
+
+    item = input("Enter food item: ")
+    price = float(input("Enter item price: "))
+
+    orders[order_id]["items"].append(item)
+    orders[order_id]["bill"] += price
+
+    print("Item added to order")
+
+
+def remove_item():
+    order_id = int(input("Enter Order ID: "))
+
+    if order_id not in orders:
+        print("Order not found")
+        return
+
+    item = input("Enter item to remove: ")
+
+    if item in orders[order_id]["items"]:
+        orders[order_id]["items"].remove(item)
+        print("Item removed from order")
+    else:
+        print("Item not found")
+
+
+def display_orders():
+    if not orders:
+        print("No orders available")
+        return
+
+    for order_id, data in orders.items():
+        print("\nOrder ID:", order_id)
+        print("Customer:", data["customer"])
+        print("Items:", data["items"])
+        print("Total Bill:", data["bill"])
+
+
+def search_order():
+    order_id = int(input("Enter Order ID to search: "))
+
+    if order_id in orders:
+        data = orders[order_id]
+        print("\nOrder Found")
+        print("Customer:", data["customer"])
+        print("Items:", data["items"])
+        print("Total Bill:", data["bill"])
+    else:
+        print("Order not found")
+
+
+def remove_order():
+    order_id = int(input("Enter delivered order ID: "))
+
+    if order_id in orders:
+        del orders[order_id]
+        print("Order removed from system")
+    else:
+        print("Order not found")
+
+
+while True:
+    print("\n===== Online Food Delivery System =====")
+    print("1. Add New Order")
+    print("2. Add Food Item")
+    print("3. Remove Food Item")
+    print("4. Display All Orders")
+    print("5. Search Order")
+    print("6. Remove Delivered Order")
+    print("7. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        create_order()
+    elif choice == 2:
+        add_item()
+    elif choice == 3:
+        remove_item()
+    elif choice == 4:
+        display_orders()
+    elif choice == 5:
+        search_order()
+    elif choice == 6:
+        remove_order()
+    elif choice == 7:
+        print("Thank you!")
+        break
+    else:
+        print("Invalid choice")
