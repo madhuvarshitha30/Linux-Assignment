@@ -1,0 +1,96 @@
+students = {}
+
+
+def grade(avg):
+    if avg >= 85:
+        return "A"
+    elif avg >= 70:
+        return "B"
+    elif avg >= 50:
+        return "C"
+    else:
+        return "Fail"
+
+
+def add_student():
+    name = input("Enter student name: ")
+
+    python = int(input("Enter Python marks: "))
+    sql = int(input("Enter SQL marks: "))
+    linux = int(input("Enter Linux marks: "))
+
+    students[name] = [python, sql, linux]
+    print("Student added successfully")
+
+
+def display_students():
+    if not students:
+        print("No student records found")
+        return
+
+    for name, marks in students.items():
+        total = sum(marks)
+        average = total / 3
+
+        print("\nName:", name)
+        print("Marks:", marks)
+        print("Total:", total)
+        print("Average:", average)
+        print("Grade:", grade(average))
+
+
+def search_student():
+    search_name = input("Enter student name to search: ").lower()
+
+    for name, marks in students.items():
+        if name.lower() == search_name:
+            total = sum(marks)
+            average = total / 3
+
+            print("\nStudent Found")
+            print("Name:", name)
+            print("Marks:", marks)
+            print("Total:", total)
+            print("Average:", average)
+            print("Grade:", grade(average))
+            return
+
+    print("Student not found")
+
+
+def class_average():
+    if not students:
+        print("No student records found")
+        return
+
+    total = 0
+
+    for marks in students.values():
+        total += sum(marks) / 3
+
+    print("Class Average:", total / len(students))
+
+
+while True:
+    print("\n===== Student Performance System =====")
+    print("1. Add Student")
+    print("2. Display Students")
+    print("3. Search Student")
+    print("4. Class Average")
+    print("5. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        add_student()
+    elif choice == 2:
+        display_students()
+    elif choice == 3:
+        search_student()
+    elif choice == 4:
+        class_average()
+    elif choice == 5:
+        print("Exiting program...")
+        break
+    else:
+        print("Invalid choice")
