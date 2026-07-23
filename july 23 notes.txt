@@ -1,0 +1,55 @@
+23/07
+
+1.Modules(.py file), packages(similar modules put together), scripting
+soc: separation of concerns
+authentication ,payment ,user , product : separation
+
+2.how do u import
+
+3.script :set of instruction
+email,process,cron jobs
+-> works -> making it work
+-> six months -> understandable
+-> modify -> safely without troubling other files
+-> errors should be handled gracefully
+-> your code should not suprise other developer
+* srp: single responsibiltiy principle
+-> venv
+-> formatting : pep 8
+* pep : Python Enhancement Proposal 8
+-> pep 8
+-> RULES
+~ Indentation 
+~ Maximum line length : 88 or 79
+~ function names : snake case
+~ variable names : snake case
+~ class name : cascal
+~ constant : upper case
+~ blank spaces,lines
+~ doc strings comments
+
+4.FAST API
+
+-> API : connecting applications
+-> CLIENT-browser------>FASTAPI----------------->DB
+                  HTTP         BUSINESS LOGIC
+-> HTTP METHODS
+GET,POST,PUT,PATCH,DELETE
+~ REST API ----> FAST API ---> RESTART
+
+-> EXTREMELY (STATEMENT & ASAI)
+-> API
+-> PYDANTIC
+-> ASYNC AND AWAIT
+-> TYPE HINT
+
+* FAST API ARCHITECTURE : STARLETTE PYDANTIC ASGI
+                           |
+                      ASYNC & AWAIT
+                        |
+                     UVICORN
+
+->ASYNCHRONOUS/NON BLOCKING
+
+
+
